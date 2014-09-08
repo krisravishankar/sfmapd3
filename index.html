@@ -15,12 +15,17 @@
 			svg {
 				margin: 20px;
 			}
+
+			path:hover {
+				opacity: 0.5;
+			}
 		</style>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="http://d3js.org/d3.v3.min.js"></script>
 	</head>
 	<body>
 		<h1>A Neighborhood Map of San Francisco</h1>
+		<h3 id="details">Hover over each neighborhood for details</h3>
 		<script type="text/javascript">
 			var data = {
 				"features" : [{
@@ -33,7 +38,8 @@
 					},
 					"id" : "94105",
 					"properties" : {
-						"id" : "94105"
+						"id" : "94105",
+						"name" : "Financial District"
 					},
 					"type" : "Feature"
 				}, {
@@ -46,7 +52,8 @@
 					},
 					"id" : "94107",
 					"properties" : {
-						"id" : "94107"
+						"id" : "94107",
+						"name" : "Potrero Hill"
 					},
 					"type" : "Feature"
 				}, {
@@ -59,7 +66,8 @@
 					},
 					"id" : "94108",
 					"properties" : {
-						"id" : "94108"
+						"id" : "94108",
+						"name" : "Chinatown"
 					},
 					"type" : "Feature"
 				}, {
@@ -72,7 +80,8 @@
 					},
 					"id" : "94109",
 					"properties" : {
-						"id" : "94109"
+						"id" : "94109",
+						"name" : "Polk/Russian Hill (Nob Hill)"
 					},
 					"type" : "Feature"
 				}, {
@@ -85,7 +94,8 @@
 					},
 					"id" : "94112",
 					"properties" : {
-						"id" : "94112"
+						"id" : "94112",
+						"name" : "Ingelside-Excelsior"
 					},
 					"type" : "Feature"
 				}, {
@@ -98,7 +108,8 @@
 					},
 					"id" : "94114",
 					"properties" : {
-						"id" : "94114"
+						"id" : "94114",
+						"name" : "Castro/Noe Valley"
 					},
 					"type" : "Feature"
 				}, {
@@ -111,7 +122,8 @@
 					},
 					"id" : "94122",
 					"properties" : {
-						"id" : "94122"
+						"id" : "94122",
+						"name" : "Sunset"
 					},
 					"type" : "Feature"
 				}, {
@@ -124,7 +136,8 @@
 					},
 					"id" : "94124",
 					"properties" : {
-						"id" : "94124"
+						"id" : "94124",
+						"name" : "Bayview-Hunters Point"
 					},
 					"type" : "Feature"
 				}, {
@@ -137,7 +150,8 @@
 					},
 					"id" : "94127",
 					"properties" : {
-						"id" : "94127"
+						"id" : "94127",
+						"name" : "West Portal"
 					},
 					"type" : "Feature"
 				}, {
@@ -150,7 +164,8 @@
 					},
 					"id" : "94132",
 					"properties" : {
-						"id" : "94132"
+						"id" : "94132",
+						"name" : "Lake Merced"
 					},
 					"type" : "Feature"
 				}, {
@@ -163,7 +178,8 @@
 					},
 					"id" : "94131",
 					"properties" : {
-						"id" : "94131"
+						"id" : "94131",
+						"name" : "Twin Peaks-Glen Park"
 					},
 					"type" : "Feature"
 				}, {
@@ -176,7 +192,8 @@
 					},
 					"id" : "94133",
 					"properties" : {
-						"id" : "94133"
+						"id" : "94133",
+						"name" : "North Beach/Chinatown"
 					},
 					"type" : "Feature"
 				}, {
@@ -189,7 +206,8 @@
 					},
 					"id" : "94102",
 					"properties" : {
-						"id" : "94102"
+						"id" : "94102",
+						"name" : "Hayes Valley/Tenderloin/North of Market"
 					},
 					"type" : "Feature"
 				}, {
@@ -202,7 +220,8 @@
 					},
 					"id" : "94103",
 					"properties" : {
-						"id" : "94103"
+						"id" : "94103",
+						"name" : "South of Market"
 					},
 					"type" : "Feature"
 				}, {
@@ -215,7 +234,8 @@
 					},
 					"id" : "94110",
 					"properties" : {
-						"id" : "94110"
+						"id" : "94110",
+						"name" : "Inner Mission/Bernal Heights"
 					},
 					"type" : "Feature"
 				}, {
@@ -228,7 +248,8 @@
 					},
 					"id" : "94111",
 					"properties" : {
-						"id" : "94111"
+						"id" : "94111",
+						"name" : "Potrero Hill"
 					},
 					"type" : "Feature"
 				}, {
@@ -241,7 +262,8 @@
 					},
 					"id" : "94115",
 					"properties" : {
-						"id" : "94115"
+						"id" : "94115",
+						"name" : "Western Addition/Japantown"
 					},
 					"type" : "Feature"
 				}, {
@@ -254,7 +276,8 @@
 					},
 					"id" : "94116",
 					"properties" : {
-						"id" : "94116"
+						"id" : "94116",
+						"name" : "Parkside/Forest Hill"
 					},
 					"type" : "Feature"
 				}, {
@@ -267,7 +290,8 @@
 					},
 					"id" : "94117",
 					"properties" : {
-						"id" : "94117"
+						"id" : "94117",
+						"name" : "Haight-Ashbury"
 					},
 					"type" : "Feature"
 				}, {
@@ -280,7 +304,8 @@
 					},
 					"id" : "94118",
 					"properties" : {
-						"id" : "94118"
+						"id" : "94118",
+						"name" : "Inner Richmond"
 					},
 					"type" : "Feature"
 				}, {
@@ -293,7 +318,8 @@
 					},
 					"id" : "94121",
 					"properties" : {
-						"id" : "94121"
+						"id" : "94121",
+						"name" : "Outer Richmond"
 					},
 					"type" : "Feature"
 				}, {
@@ -306,7 +332,8 @@
 					},
 					"id" : "94123",
 					"properties" : {
-						"id" : "94123"
+						"id" : "94123",
+						"name" : "Marina"
 					},
 					"type" : "Feature"
 				}, {
@@ -319,7 +346,8 @@
 					},
 					"id" : "94134",
 					"properties" : {
-						"id" : "94134"
+						"id" : "94134",
+						"name" : "Visitacion Valley/Sunnydale"
 					},
 					"type" : "Feature"
 				}],
@@ -341,7 +369,15 @@
 			var transl = [(width - scale * (bounds[1][0] + bounds[0][0])) / 2, (height - scale * (bounds[1][1] + bounds[0][1])) / 2];
 			projection.scale(scale).translate(transl);
 
-			svg.selectAll("path").data(data.features).enter().append("path").attr("d", path).style("fill", "#FB5B1F").style("stroke", "#ffffff");
+			svg.selectAll("path").data(data.features).enter().append("path").attr("d", path).attr('data-id', function(d) {
+				return d.id;
+			}).attr('data-name', function(d) {
+				return d.properties.name;
+			}).style("fill", "#FB5B1F").style("stroke", "#ffffff");
+
+			$('svg path').hover(function() {
+				$("#details").text($(this).data("id") + " : " + $(this).data("name"));
+			});
 		</script>
 	</body>
 </html>
